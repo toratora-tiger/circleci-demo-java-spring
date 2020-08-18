@@ -87,8 +87,14 @@ workflows:
   version: 2
   myworkflow:
     jobs:
-    - build
+    - build:
+        filters:
+          branches:
+            only: master
     - test:
         requires:
           - build
+        filters:
+          branches:
+            only: master
 
